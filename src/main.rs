@@ -124,7 +124,7 @@ fn main() {
     println!("length: {}", arr_1.len());
     */
 
-    
+    /*    
     // Looping through an array, to print odd numbers below 9
     let arr_2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     let mut loop_idx = 0;
@@ -151,5 +151,50 @@ fn main() {
     loop_idx = 0;
     for val in arr_2.iter() {
         println!("[For] Val: {}", val);
+    }
+    */
+
+    /*
+    // Tuples
+    let my_tuple: (u8, String, f64) = (42, "Marcin".to_string(), 50_000.00);
+    println!("Name: {}", my_tuple.1);
+    let (v1, v2, v3) = my_tuple;
+    println!("Age: {}", v1);
+    */
+
+    let mut st1 = String::new();
+    st1.push('A');
+    st1.push_str(" word");
+    
+    for word in st1.split_whitespace(){
+        println!("{}", word);
+    }
+
+    let st2 = st1.replace("A", "Another");
+    println!("{}", st2);
+
+    let st3 = String::from("m a a r c i i n");
+    let mut v1: Vec<char> = st3.chars().collect();
+    v1.sort();
+    v1.dedup();
+    for char in v1 {
+        println!("{}", char);
+    }
+
+    let st4: &str = "Random string";
+    let mut st5: String = st4.to_string();
+    println!("{}", st5);
+
+    let byte_arr1 = st5.as_bytes();
+    let st6 = &st5[0..6];
+    println!("String length: {}", st6.len());
+    st5.clear();
+
+    // reusing st6 - seems strange to me
+    let st6 = String::from("Just some");
+    let st7 = String::from(" words");
+    let st8 = st6 + &st7;
+    for char in st8.bytes() {
+        println!("{}", char);
     }
 }
