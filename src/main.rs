@@ -162,6 +162,8 @@ fn main() {
     println!("Age: {}", v1);
     */
 
+    /*
+    // Working with Strings
     let mut st1 = String::new();
     st1.push('A');
     st1.push_str(" word");
@@ -197,4 +199,43 @@ fn main() {
     for char in st8.bytes() {
         println!("{}", char);
     }
+    */
+
+    // Casting
+    let int_u8: u8 = 5;
+    let int2_u8: u8 = 4;
+    let int3_u32: u32 = (int_u8 as u32) + (int2_u8 as u32);
+
+    //Enums
+    enum Day {
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    }
+
+    impl Day {
+        fn is_weekend(&self) -> bool {
+            match self {
+                Day::Saturday | Day::Sunday => true, 
+                _ => false
+            }
+        }
+    }
+
+    let today: Day = Day::Monday;
+    match today {
+        Day::Monday => println!("Everyone hates Mondays"),
+        Day::Tuesday => println!("Donut day"),
+        Day::Wednesday => println!("Hump day"),
+        Day::Thursday => println!("Pay day"),
+        Day::Friday => println!("Almost Weekend"),
+        Day::Saturday => println!("Weekend"),
+        Day::Sunday => println!("Weekend"),
+    }
+
+    println!("Is it weekend yet? {}", today.is_weekend());
 }
